@@ -1,0 +1,35 @@
+.specials {
+    overflow: hidden;
+}
+.specials .nav-tabs {
+    border: 0;
+}
+.specials .nav-tabs .nav-link {
+    border: 0;
+    padding: 12px 15px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 0;
+    border-right: 2px solid #cda45e;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.specials .nav-link:hover {
+    color: #cda45e;
+    border-color: #cda45e;
+}
+.specials .nav-link.active {
+    color: #cda45e;
+    background: #cda45e;
+    border-color: #cda45e;
+}
+.specials .nav-tabs:hover{
+    color: black;
+}
+@media (max-width: 992px) {
+    .specials .nav-link {
+        border :0;
+        padding: 15px;
+    }
+}

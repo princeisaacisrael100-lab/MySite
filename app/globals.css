@@ -1,0 +1,27 @@
+body{
+  font-family: 'Times New Roman', Times, serif;
+  background-color: black;
+  color: white;
+}
+a{
+  color: white;
+  text-decoration: none !important;
+}
+a:hover{
+  color: white !important;
+  text-decoration: none !important;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'playfair-display', serif;
+}
+body::-webkit-scrollbar{
+  display: none;
+}
+
+section{
+  padding: 60px 0;
+  overflow: hidden;
+}
+.section-bg{
+  background-color: #0b0b0b;
+}

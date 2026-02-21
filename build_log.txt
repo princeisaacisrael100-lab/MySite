@@ -1,0 +1,34 @@
+
+> my-app@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./app/Sections/Event.css:3:24
+Module not found: Can't resolve '../public/assets/img/events-bg.jpg'
+[0m [90m 1 |[39m [33m.[39mevents{
+ [90m 2 |[39m     background[33m-[39mimage[33m:[39m url([32m'../public/assets/img/events-bg.jpg'[39m) center[33m/[39mcover no[33m-[39mrepeat[33m;[39m
+[31m[1m>[22m[39m[90m 3 |[39m     position[33m:[39m relative[33m;[39m
+ [90m   |[39m                        [31m[1m^[22m[39m
+ [90m 4 |[39m     background[33m-[39msize[33m:[39m cover[33m;[39m
+ [90m 5 |[39m }
+ [90m 6 |[39m [33m.[39mevents[33m:[39m[33m:[39mbefore {[0m
+
+
+
+Import trace:
+  Client Component Browser:
+    ./app/Sections/Event.css [Client Component Browser]
+    ./app/Sections/Event.tsx [Client Component Browser]
+    ./app/Sections/Event.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./app/Sections/Event.css:3:24)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
