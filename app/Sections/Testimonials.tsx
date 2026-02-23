@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 // Import Swiper React components
@@ -12,31 +12,11 @@ import 'swiper/css/pagination';
 // Import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Sectiontitle } from '../Components/Sectiontitle';
+import { testimonials } from '../Data/data';
 
 import './Testimonials.css';
 
-interface Testimonial {
-    id: number;
-    content: string;
-    avatar: string;
-    client: string;
-    position: string;
-}
-
 export default function Testimonials() {
-    const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-
-    const getTestimonialsData = () => {
-        fetch('/api/Testimonials')
-            .then(res => res.json())
-            .then(data => setTestimonials(data))
-            .catch(e => console.log(e.message));
-    };
-
-    useEffect(() => {
-        getTestimonialsData();
-    }, []);
-
     return (
         <section id="testimonials" className="testimonials">
             <div className="container" data-aos="fade-up">
@@ -83,7 +63,7 @@ export default function Testimonials() {
                                         </div>
                                         <div className="testimonial-avatar">
                                             <img
-                                                src={item.avatar.replace('./', '/')}
+                                                src={item.avatar}
                                                 alt={item.client}
                                             />
                                         </div>

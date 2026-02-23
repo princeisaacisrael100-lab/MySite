@@ -1,46 +1,28 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Menu.css';
-import { filters } from '../Data/data';
+import { filters, menu } from '../Data/data';
 import { Sectiontitle } from '../Components/Sectiontitle';
 import { Menuitem } from '../Components/Menuitem';
-import Preloader from '../Components/Preloader';
 
 export const Menu = () => {
-  const [data, setData] = useState([]);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(menu);
 
-
-  const getMenuData = () => {
-    fetch('/api/menu')
-      .then(res => res.json())
-      .then(menu => setData(menu))
-      .catch(e => console.log(e.message));
-  };
-
-  useEffect(() => {
-    getMenuData();
-  }, []);
-
-  useEffect(() => {
-    setItems(data);
-  }, [data]);
-
-  const handleFilterAcive = (id:number) => {
-   filters.map(filter => {
-    filter.id === id ? filter.active = true : filter.active = false
-   } )
+  const handleFilterAcive = (id: number) => {
+    filters.map(filter => {
+      filter.id === id ? filter.active = true : filter.active = false
+    })
   }
 
   const handleFilterChange = (id: number, category: string) => {
     handleFilterAcive(id);
     if (category === 'all') {
-      setItems(data);
+      setItems(menu);
     } else {
-      const result = data.filter((item: any) => item.category === category);
+      const result = menu.filter((item: any) => item.category === category);
       setItems(result);
     }
-   };
+  };
 
   return (
     <section id='menu' className='menu section-bg'>
@@ -65,7 +47,7 @@ export const Menu = () => {
           data-aos='fade-up'
           data-aos-delay='200'
         >
-          {items.length > 0 ? (
+          {items.length > 0 &&
             items.map(
               (item: {
                 id: number;
@@ -75,9 +57,7 @@ export const Menu = () => {
                 ingredients: string;
               }) => <Menuitem key={item.id} items={item} />
             )
-          ) : (
-            <Preloader />
-          )}
+          }
         </div>
       </div>
     </section>

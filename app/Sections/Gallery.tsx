@@ -1,29 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Sectiontitle } from '../Components/Sectiontitle';
+import { gallery } from '../Data/data';
 
 import './Gallery.css';
 
-interface GalleryItem {
-    id: number;
-    image: string;
-}
-
 export default function Gallery() {
-    const [images, setImages] = useState<GalleryItem[]>([]);
     const [lightbox, setLightbox] = useState<string | null>(null);
-
-    const getGalleryData = () => {
-        fetch('/api/Gallery')
-            .then(res => res.json())
-            .then(data => setImages(data))
-            .catch(e => console.log(e.message));
-    };
-
-    useEffect(() => {
-        getGalleryData();
-    }, []);
 
     return (
         <section id="gallery" className="gallery">
@@ -34,8 +18,8 @@ export default function Gallery() {
                 />
 
                 <div className="gallery-grid" data-aos="fade-up" data-aos-delay="100">
-                    {images.length > 0 &&
-                        images.map((item) => (
+                    {gallery.length > 0 &&
+                        gallery.map((item) => (
                             <div
                                 className="gallery-item"
                                 key={item.id}

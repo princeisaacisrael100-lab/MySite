@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,22 +12,11 @@ import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import EventsItem from '../Components/EventsItems';
 import { Sectiontitle } from '../Components/Sectiontitle';
+import { events } from '../Data/data';
 
 import './Event.css';
 
 export default function Events() {
-    const [slides, setSlides] = useState<any | []>([])
-    const getEventsData = () => {
-        fetch('/api/events')
-            .then(res => res.json())
-            .then(data => setSlides(data))
-            .catch(e => console.log(e.message));
-    };
-
-    useEffect(() => {
-        getEventsData();
-    }, []);
-
     return (
         <section id="events" className="events">
             <div className="container" data-aos="fade-up">
@@ -52,9 +41,9 @@ export default function Events() {
                         loop={true}
                         className="events-slider swiper-container"
                     >
-                        {slides &&
-                            slides.length > 0 &&
-                            slides.map(
+                        {events &&
+                            events.length > 0 &&
+                            events.map(
                                 (slide: {
                                     id: number;
                                     image: string;
@@ -75,6 +64,4 @@ export default function Events() {
             </div>
         </section>
     );
-
-
 }

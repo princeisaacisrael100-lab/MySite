@@ -1,32 +1,10 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Sectiontitle } from '../Components/Sectiontitle';
+import { chefs } from '../Data/data';
 
 import './Chefs.css';
 
-interface Chef {
-    id: number;
-    name: string;
-    photo: string;
-    position: string;
-    delay: string;
-}
-
 export default function Chefs() {
-    const [chefs, setChefs] = useState<Chef[]>([]);
-
-    const getChefsData = () => {
-        fetch('/api/Chefs')
-            .then(res => res.json())
-            .then(data => setChefs(data))
-            .catch(e => console.log(e.message));
-    };
-
-    useEffect(() => {
-        getChefsData();
-    }, []);
-
     return (
         <section id="chefs" className="chefs">
             <div className="container" data-aos="fade-up">
@@ -46,7 +24,7 @@ export default function Chefs() {
                             >
                                 <div className="chef-photo">
                                     <img
-                                        src={chef.photo.replace('./', '/')}
+                                        src={chef.photo}
                                         alt={chef.name}
                                     />
                                     <div className="chef-info">
