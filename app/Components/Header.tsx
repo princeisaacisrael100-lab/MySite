@@ -19,13 +19,13 @@ export default function Header() {
     );
   }, [scroll]);
   return (
-    <header id="header" className={`fixed-top d-flex align-items-center ${scroll > 100 ? "scrolled" : ""}`}>
+    <header id="header" className={`d-flex align-items-center ${scroll > 100 ? "scrolled" : ""}`}>
       <div className="container-fluid d-flex align-items-center container-xl justify-content-lg-between">
         <h1 className="logo me-auto me-lg-0">
           <a href="/">Restaurant</a>
         </h1>
 
-        <Nav /> 
+        <Nav />
 
         <Appbtn name='Book a table' />
 

@@ -1,0 +1,124 @@
+.chefs {
+    background: #1a1814;
+    padding: 80px 0;
+}
+
+.chefs .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.chefs .section-title h2 {
+    color: #fff;
+}
+
+.chefs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.chef-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.chef-card .chef-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    position: relative;
+}
+
+.chef-card .chef-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.chef-card:hover .chef-photo img {
+    transform: scale(1.05);
+}
+
+/* Info overlay at bottom of image */
+.chef-card .chef-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    text-align: center;
+    transform: translateY(40px);
+    transition: transform 0.4s ease;
+}
+
+.chef-card:hover .chef-info {
+    transform: translateY(0);
+}
+
+.chef-card .chef-info h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.chef-card .chef-info p {
+    color: #cda45e;
+    font-size: 14px;
+    font-style: italic;
+    margin: 0 0 15px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Social icons */
+.chef-card .chef-socials {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.chef-card:hover .chef-socials {
+    opacity: 1;
+}
+
+.chef-card .chef-socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.chef-card .chef-socials a:hover {
+    background: #cda45e;
+    color: #1a1814;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .chefs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .chefs-grid {
+        grid-template-columns: 1fr;
+    }
+}

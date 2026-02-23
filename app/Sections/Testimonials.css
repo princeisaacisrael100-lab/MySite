@@ -1,0 +1,113 @@
+.testimonials {
+    background: url('/assets/images/events/events-bg.jpg') center/cover no-repeat;
+    position: relative;
+    padding: 80px 0;
+}
+
+.testimonials::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.85);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.testimonials .section-title h2 {
+    color: #fff;
+}
+
+.testimonials .container {
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .testimonials {
+        background-attachment: fixed;
+    }
+}
+
+/* Testimonial card */
+.testimonial-item {
+    text-align: center;
+    padding: 0 15px;
+}
+
+.testimonial-item .testimonial-content {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(205, 164, 94, 0.3);
+    border-radius: 4px;
+    padding: 30px 25px;
+    margin-bottom: 30px;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-item .testimonial-content p {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+}
+
+.testimonial-item .testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px auto;
+    border: 3px solid rgba(205, 164, 94, 0.5);
+}
+
+.testimonial-item .testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-item h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 5px 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.testimonial-item h4 {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+}
+
+/* Swiper pagination */
+.testimonials .swiper-pagination {
+    margin-top: 30px;
+    position: relative;
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #cda45e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testimonial-item .testimonial-content {
+        min-height: auto;
+        padding: 20px 15px;
+    }
+}

@@ -6,7 +6,7 @@ export const Nav = () => {
     const [navList, setNavList] = useState(navs)
     const [open, setOpen] = useState(false)
     const [scrolled, setScrolled] = useState(0);
-    const handleToggleMenu =() =>{
+    const handleToggleMenu = () => {
         setOpen(!open);
     };
 
@@ -21,10 +21,10 @@ export const Nav = () => {
             })
         );
     }, [scrolled]);
-    const handScrollto = (section:string) =>{
-        
+    const handScrollto = (section: string) => {
+
     }
-    const handleNavActive =() =>{
+    const handleNavActive = () => {
 
     }
 
@@ -51,7 +51,7 @@ export const Nav = () => {
                             className={`nav-links scrollto ${nav.active ? 'active' : ''}`}
                             onClick={() => handleNavClick(nav.target)}
                         >
-                            {nav.name}
+                            {nav.name === 'Home' ? <i className="bi bi-house-door-fill"></i> : nav.name}
                         </a>
                     </li>
                 ))}
