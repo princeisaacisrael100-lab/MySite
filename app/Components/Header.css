@@ -1,34 +1,43 @@
 #header {
-    background-color: rgba(12, 12, 12, 0.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px 0;
+    background: rgba(12, 12, 12, 0.8);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     transition: all 0.5s;
-    z-index: 999;
+    z-index: 997;
     position: fixed;
-    top: 0;
+    top: 40px;
     left: 0;
-    width: 100%;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
 }
 
-#header .header-scrolled {
+#header.scrolled {
     top: 0;
-    background: rgba(12, 12, 12, 0.9);
+    background: rgba(0, 0, 0, 0.85);
     border-bottom: 1px solid #37332a;
+    height: 70px;
 }
 
 #header .logo {
-    font-size: 30px;
+    font-size: 28px;
     margin: 0;
     padding: 0;
     line-height: 1;
-    font-weight: 300;
+    font-weight: 700;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 #header .logo a {
     color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#header .logo a:hover {
+    color: #cda45e;
 }
 
 #header .logo img {

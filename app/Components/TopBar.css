@@ -6,13 +6,13 @@
 
 }
 
-#topbar.topbar-scrolled {
+#topbar.scrolled {
     top: -40px;
 }
 
-#topbar.topbar-info i {
+#topbar .contact-info i {
     font-style: normal;
-    color: #d9ba85;
+    color: #cda45e;
 }
 
 #topbar .contact-info i span {
@@ -26,11 +26,17 @@
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
-    color: tomato;
 }
 
 #topbar .languages ul a {
     color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#topbar .languages ul a:hover,
+#topbar .languages ul a.active {
+    color: #cda45e;
 }
 
 #topbar .languages ul li+li {

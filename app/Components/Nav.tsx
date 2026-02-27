@@ -12,15 +12,14 @@ export const Nav = () => {
 
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        const handleScroll = () => {
             setScrolled(window.scrollY);
-        });
-        return () => (
-            window.removeEventListener("scroll", () => {
-                setScrolled(window.scrollY);
-            })
-        );
-    }, [scrolled]);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     const handScrollto = (section: string) => {
 
     }

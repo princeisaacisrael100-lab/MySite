@@ -9,15 +9,14 @@ export default function Header() {
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
       setScroll(window.scrollY);
-    });
-    return () => (
-      window.removeEventListener("scroll", () => {
-        setScroll(window.scrollY);
-      })
-    );
-  }, [scroll]);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <header id="header" className={`d-flex align-items-center ${scroll > 100 ? "scrolled" : ""}`}>
       <div className="container-fluid d-flex align-items-center container-xl justify-content-lg-between">

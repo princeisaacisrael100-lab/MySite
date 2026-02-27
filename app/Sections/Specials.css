@@ -1,9 +1,11 @@
 .specials {
     overflow: hidden;
 }
+
 .specials .nav-tabs {
     border: 0;
 }
+
 .specials .nav-tabs .nav-link {
     border: 0;
     padding: 12px 15px;
@@ -15,21 +17,27 @@
     transition: all 0.3s ease;
     cursor: pointer;
 }
+
 .specials .nav-link:hover {
-    color: #cda45e;
-    border-color: #cda45e;
-}
-.specials .nav-link.active {
-    color: #cda45e;
+    color: #1a1814;
     background: #cda45e;
     border-color: #cda45e;
 }
-.specials .nav-tabs:hover{
-    color: black;
+
+.specials .nav-link.active {
+    color: #1a1814;
+    background: #cda45e;
+    border-color: #cda45e;
 }
+
+.specials .nav-link.active:hover {
+    background: #d9ba85;
+    border-color: #d9ba85;
+}
+
 @media (max-width: 992px) {
     .specials .nav-link {
-        border :0;
+        border: 0;
         padding: 15px;
     }
 }
