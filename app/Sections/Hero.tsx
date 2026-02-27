@@ -1,10 +1,39 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Hero.css"
 import Herobtn from '../Components/Herobtn'
 
 export const Hero = () => {
+    const [playVideo, setPlayVideo] = useState(false);
+
+    useEffect(() => {
+        // Load YouTube IFrame API
+        if (playVideo) {
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+
+            (window as any).onYouTubeIframeAPIReady = () => {
+                new (window as any).YT.Player('youtube-player', {
+                    events: {
+                        'onStateChange': (event: any) => {
+                            if (event.data === (window as any).YT.PlayerState.ENDED) {
+                                setPlayVideo(false);
+                            }
+                        }
+                    }
+                });
+            };
+        }
+    }, [playVideo]);
+
+    const handlePlayClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setPlayVideo(true);
+    };
+
     useEffect(() => {
         const initGLightbox = async () => {
             const GLightbox = (await import('glightbox')).default;
@@ -14,6 +43,7 @@ export const Hero = () => {
         };
         initGLightbox();
     }, []);
+
     return (
         <section id="hero" className="d-flex align-items-center">
             <div className='container position-relative text-center text-lg-start'
@@ -34,7 +64,30 @@ export const Hero = () => {
                         data-aos="zoom-in"
                         data-aos-delay="200"
                     >
-                        <a href="https://youtube.com/shorts/wLL8H_h_nvs?si=et5DXWLJiQZDX9JG" className='glightbox play-btn'></a>
+                        {playVideo ? (
+                            <div className="video-container">
+                                <button
+                                    className="close-video"
+                                    onClick={() => setPlayVideo(false)}
+                                    aria-label="Close video"
+                                >
+                                    <i className="bi bi-x"></i>
+                                </button>
+                                <iframe
+                                    id="youtube-player"
+                                    src="https://www.youtube.com/embed/qgwHxIXuyvQ?enablejsapi=1&autoplay=1"
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        ) : (
+                            <a
+                                href="https://www.youtube.com/watch?v=qgwHxIXuyvQ"
+                                className='play-btn'
+                                onClick={handlePlayClick}
+                            ></a>
+                        )}
                     </div>
                 </div>
 
